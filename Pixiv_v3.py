@@ -93,6 +93,6 @@ if __name__ == "__main__":
     jpgName = nowTime + '.zip'
     print(f'zip -r {zipName}')
     os.system(f'zip -r {zipName} {basePath}')
-    os.system(f'mv {zipName} {jpgName}')
-    # os.system(f'aliyunpan -c /workspaces/PixivSpider/aliyunpan.yaml upload {jpgName} PixivOutPut')
+    # os.system(f'mv {zipName} {jpgName}')
+    os.system(f'aliyunpan -c /workspaces/PixivSpider/aliyunpan.yaml upload {zipName} PixivOutPut')
     
