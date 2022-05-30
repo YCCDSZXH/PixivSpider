@@ -58,3 +58,11 @@ venv
 output.html
 .ipynb_checkpoints
 OutPut
+VENV
+aliyunpan.yaml
+*.jpg
+*.zip
+*.png
+*.gif
+*.mp4
+*.mp3

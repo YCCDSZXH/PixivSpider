@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 import time
 import aiofiles
-
+basePath = ""
 
 async def write_data(path, data):
     # 异步方式执行with操作,修改为 async with
@@ -67,11 +67,12 @@ def mkdir(path):
 
 
 def getNowDate():
-    return datetime.datetime.now().strftime('%Y%m%d')
+    return datetime.datetime.now().strftime('%Y%m%d%H%M%S')
 
 
 def main():
     tasks = []
+    global basePath
     originInfoList = getList()
     delailInfoList = getDetailInfo(originInfoList)
     basePath = f"OutPut/{ getNowDate()}/"
@@ -87,3 +88,11 @@ if __name__ == "__main__":
     start = time.time()
     main()
     print('耗时', time.time()-start)
+    nowTime =  getNowDate()
+    zipName = nowTime + '.zip'
+    jpgName = nowTime + '.zip'
+    print(f'zip -r {zipName}')
+    os.system(f'zip -r {zipName} {basePath}')
+    os.system(f'mv {zipName} {jpgName}')
+    # os.system(f'aliyunpan -c /workspaces/PixivSpider/aliyunpan.yaml upload {jpgName} PixivOutPut')
+    
